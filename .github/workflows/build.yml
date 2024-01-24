@@ -17,11 +17,8 @@ jobs:
         uses: nekocodeX/GitHub-Action-Ahk2Exe@main
         with:
           in: QuickSwitch.ahk
+          out: build/QuickSwitch.ahk
           icon: res/icon.ico
-      - name: Do Something with builded scripts
-        shell: pwsh
-        run: |
-          ls build
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -32,6 +29,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            QuickSwitch.exe
+            build/QuickSwitch.exe
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
