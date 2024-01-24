@@ -13,16 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build with AHK v2
-        uses: nukdokplex/autohotkey-build@v0.1
+      - name: Build with AHK
+        uses: nekocodeX/GitHub-Action-Ahk2Exe@main
         with:
-          version: v2.0.2
-          x64: true
-          x64_suffix: ""
-          compression: upx
-          in: ${{ github.workspace }}
+          in: QuickSwitch.ahk
           out: build
-          icon: "res/icon.ico"
+          icon: res/icon.ico
       - name: Do Something with builded scripts
         shell: pwsh
         run: |
